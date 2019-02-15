@@ -37,8 +37,8 @@ class App extends Component {
         <header className="swHeader">The Star Wars API Search</header>
           <form action="submit">
             <label htmlFor="swSearch">Enter Character Search Term</label>
-            <input type="text" className="searchBox" name="swSearch" onChange={(e) => this.setState({searchTerm: e})} />
-            <button type="submit" onSubmit={this.handleSearch} >Search Characters</button>
+            <input type="text" className="searchBox" name="swSearch" onChange={(e) => this.setState({searchTerm: e.currentTarget})} />
+            <button type="submit" onSubmit={e => { e.preventDefault(); this.handleSearch()}} >Search Characters</button>
           </form>
           <div id="charResults">{this.state.htmlSearch}</div>
       </div>
